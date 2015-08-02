@@ -1,31 +1,29 @@
-
-
-		
 <article ng-controller="itemsController">
-			<div class="newItemContainer">
-			<h2 class="clear">New/Edit Items</h2>
-			<div class="w50  newItemImputContainer">
-				<span>Item :</span>
-				<input type="text" ng-model="items[0].nombre">
-			</div>
-			<div class="w50 newItemImputContainer">
-				<span>Descricion : </span>
-				<input type="text" ng-model="items[0].descripcion">
-			</div>
-			<div class="w50 newItemImputContainer">
-				<span>Costo: </span>
-				<input type="text" ng-model="items[0].costo">
-			</div>
-			<div class="w50 newItemImputContainer">
-				<span>imagen : </span>
-				<input type="text" ng-model="items[0].imagen">
-			</div>			
-			<div class="left w50">
-				<ul class="btns">
-					<li class="left btnsli"><a href="#">Cancelar</a></li>
-					<li class="left btnsli"><a href="#">Guardar</a></li>
-				</ul>
-			</div>
-			</div>			
+	<!--<form ng-submit="addItem(newItem)">-->
+	<div class="newItemContainer">
+		<h2 class="clear">New/Edit Items</h2>
+		<div class="w50  newItemImputContainer">
+			<span>Item :</span>
+			<input type="text" id="newItemName">
+		</div>
+		<div class="w50 newItemImputContainer">
+			<span>Descricion : </span>
+			<input type="text" id="newItemDescripcion">
+		</div>
+		<div class="w50 newItemImputContainer">
+			<span>Costo: </span>
+			<input type="text"id="newItemCosto">
+		</div>
+		<div class="w50 newItemImputContainer">
+			<span >imagen : </span>
+			<input type="text" id="newItemIMagen">
+		</div>
+		<div class="left w50">
+			<ul class="btns">
+				<li class="left btnsli"><a href="/#/wishlist">Cancelar</a></li>
+				<li class="left btnsli" ng-click="addItem()"><span>Guardar</span><!--<input type="submit" id="submit" value="Submit" />--></li>
+			</ul>
+		</div>
+	</div>
+	<!--</form>-->
 </article>
-

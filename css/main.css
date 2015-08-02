@@ -54,14 +54,14 @@ nav {
 	border: 3px solid gray;
 }
 
-.btnsli a {
+.btnsli a, .btnsli span {
 	color: black;
 	display: block;
 	padding: 10px;
 	text-decoration: none;
 }
 
-.btnsli a:hover {
+.btnsli a:hover, .btnsli span:hover {
 	color: #fff;
 	background-color: gray;
 }
@@ -93,11 +93,16 @@ article {
 
 .itemImgContainer {
 	padding: 25px;
+	height: 100px;
 }
 
 .itemEditContainter {
 	display: block;
 	display: inline-block;
+}
+
+.itemIconsContainer {
+	text-align: center;
 }
 
 .newItemContainer {

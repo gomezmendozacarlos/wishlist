@@ -1,42 +1,42 @@
 <article >
-		<h2 class="clear">My wishlist items</h2>
-			<div class="left w50 itemBscContainer">
-				<span>Buscar : </span>
-				<input type="text" ng-model="searchText">
-				{{ordenarPor}}
+	<h2 class="clear">My {{actualTab}} items</h2>
+	<div class="left w50 itemBscContainer">
+		<span>Buscar : </span>
+		<input type="text" ng-model="searchText">
+		{{ordenarPor}}  {{gastoMax}}
+	</div>
+	<div class="left w50">
+		<ul class="btns">
+			<li class="left btnsLabel">Ordenar por: </li>
+			<li class="left btnsli" ng-click=" ordenarPor = '-creado'"><a>Creado</a></li>
+			<li class="left btnsli" ng-click=" ordenarPor = '-fechaMod'"><a>Modificado</a></li>
+		</ul>
+	</div>
+	<section class="clear itemContainer" ng-show ="actualTab == item.status"  ng-repeat="item in items | filter: searchText | orderBy:ordenarPor">
+		<div class="left w50">
+			<div class="left itemImgContainer">
+				<img  ng-src="{{items[0].imagen}}">
 			</div>
-			<div class="left w50">
-				<ul class="btns">
-					<li class="left btnsLabel">Ordenar por: </li>
-					<li class="left btnsli" ng-click=" ordenarPor = '+costo'"><a>Creado</a></li>
-					<li class="left btnsli" ng-click=" ordenarPor = '-costo'"><a>Modificado</a></li>
+			<div class="left">
+				<p>{{item.nombre}}</p>
+				<p>{{item.descripcion}}</p>
+				<p>{{item.costo | currency}}</p>
+				<p>{{item.fechaMod | date:'yyyy-MM-dd h:mm a'}}</p>
 			</div>
-			<section class="clear itemContainer" ng-show ="actualTab == item.status"  ng-repeat="item in items | filter: searchText | orderBy:ordenarPor">
-				<div class="left w50">
-					<div class="left itemImgContainer">
-						<img  ng-src="{{items[0].imagen}}">
-					</div>
-					<div class="left">
-						<p>{{item.nombre}}</p>
-						<p>{{item.descripcion}}</p>
-						<p>{{item.costo | currency}}</p>
-						<p>{{item.fechaMod}}</p>
-					</div>
-				</div>
-				<div class="left w50" style="text-align: center">
-					<ul class="btns">
-						<li class="itemImgContainer itemEditContainter">
-							<a href="/#/edititem">
-								<img <img src="http://www.clker.com/cliparts/P/3/n/5/9/E/pencil-th.png" alt="editar">
-							</a>
-						</li>
-						<li class="itemImgContainer itemEditContainter" ng-click="item.status = 'comprado'">
-							<a href="">
-								<img src="http://edc.poolsupplyworld.com/wimages/highlights/highlights_thumbnail/symbol_dollar.jpg" alt="comprar">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</section>
-			
-		</article>
+		</div>
+		<div class="left w50" class="itemIconsContainter">
+			<ul class="btns">
+				<li class="itemImgContainer itemEditContainter">
+					<a href="/#/edititem">
+						<img <img src="http://www.clker.com/cliparts/P/3/n/5/9/E/pencil-th.png" alt="editar">
+					</a>
+				</li>
+				<li class="itemImgContainer itemEditContainter" ng-click="item.status = 'comprado'">
+					<a href="">
+						<img src="http://edc.poolsupplyworld.com/wimages/highlights/highlights_thumbnail/symbol_dollar.jpg" alt="comprar">
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+</article>

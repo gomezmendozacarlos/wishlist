@@ -1,47 +1,43 @@
 <!DOCTYPE html>
 <html  ng-app="wishlist">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width">
-		<title></title>
-		<script>
-		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-		</script>	<head>
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title></title>
+	<script>
+	document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+	</script>	<head>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
 		<script type="text/javascript" src="angular.min.js"></script>
 		<script type="text/javascript" src="angular-route.min.js"></script>
-
 		<script src="app.js"></script>
 	</head>
-	<body>
-		
+	<body>		
 		<header>
-			<h1>whislist</h1>
-			
-		</header> 
+			<h1>whislist</h1>			
+		</header>
 		<div style="width: 90%">
 			<div class="left">
 				<a href="/#/newitem">
-				<div class="left btnNewItem">+</div>
-				<h2 class="left">new item</h2>
+					<div class="left btnNewItem">+</div>
+					<h2 class="left">new item</h2>
 				</a>
 			</div>
-			<div class="right" style="padding: 15px;">
+			<div class="left" style="padding: 15px;">
 				<ul class="btns">
-					<li class="left btnsLabel">Maximo permitido: </li>
-					<li class="left"><input type="text"></li>
+					<li class="left btnsLabel">Maximo permitido: $</li>
+					<li class="left"><input style="width:50px;" type="text" ng-model="gastoMaxdfg"></li>
 					<li class="left btnsLabel">Dinero Gastado: </li>
 					<li class="left btnsli btnsliLabel"><label>$sdgvd</label></li>
 				</ul>
 			</div>
-		</div>		
+		</div>
 		<nav class="clear">
 			<ul class="btns">
 				<li class="left btnsli" ng-click="actualTab = 'wishlist'"><a href="/#/wishlist">My whislist items</a></li>
-				<li class="left btnsli" ng-click="actualTab = 'comprado'"><a href="/#/wishlist">My bought items</a></li>
+				<li class="left btnsli" ng-click="actualTab = 'bought'"><a href="/#/wishlist">My bought items</a></li>
 			</ul>
 		</nav>
-		<ng-view></ng-view>			
+		<ng-view></ng-view>
 	</body>
 </html>

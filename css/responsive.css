@@ -1,11 +1,28 @@
-@media screen and (max-width: 900px) {
+@media screen and (max-width : 1000px) {
 	body {
-	background-color: red;
+	
 	}
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width : 768px) {
 	body {
-	background-color: blue;
+	
+
+	.left{
+		margin:10px 0;
+	}
+
+	.w50 {
+		width: 100%;
+	} 
+
+	article{
+		min-height: 580px;
+	}
+}
+
+@media screen and (max-width : 480px) {
+	body {
+	
 	}
 }
