@@ -1,0 +1,130 @@
+img {
+	max-width: 100%;
+	height: :auto;
+	margin: 0 0 10 px 0;
+}
+
+input {
+	padding: 10px;
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-right: 10px;
+	border: 3px solid gray;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: black;
+}
+
+.btnNewItem {
+	border-radius: 50%;
+	border: 5px solid gray;
+	color: gray;
+	width: 50px;
+	height: 50px;
+	font-size: 45px;
+	text-align: center
+}
+
+nav {
+	border-radius: 10px;
+	overflow: hidden;
+	padding: 10px;
+	width: 90%;
+}
+
+.btns {
+	list-style: none;
+	margin: 0 10px 0 10px;
+	padding: 0;
+}
+
+.btnsli {
+	border-radius: 5px;
+	font-size: 16px;
+	font-weight: bold;
+	margin-right: 10px;
+	text-align: center;
+	border: 3px solid gray;
+}
+
+.btnsli:hover {
+	border: 3px solid gray;
+}
+
+.btnsli a {
+	color: black;
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+}
+
+.btnsli a:hover {
+	color: #fff;
+	background-color: gray;
+}
+
+.btnsliLabel {
+	color: black;
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+}
+
+.btnsLabel {
+	border: 3px solid white;
+	padding: 10px;
+}
+
+article {
+	width: 90%;
+	border: 3px solid gray;
+	border-radius: 5px;
+	padding: 10px;
+}
+
+.itemContainer {
+	height: 150px;
+	padding: 10px 0;
+}
+
+.itemImgContainer {
+	padding: 25px;
+}
+
+.itemEditContainter {
+	display: block;
+	display: inline-block;
+}
+
+.newItemContainer {
+	height: 330px;
+}
+
+.newItemImputContainer {
+	margin-bottom: 10px;
+}
+
+.newItemImputContainer span {
+	disply: block;
+	width: 100px;
+}
+
+.left {
+	float: left;
+}
+
+.leftClear {
+	float: left;
+	clear: right;
+}
+
+.clear {
+	clear: both;
+}
+
+.w50 {
+	width: 50%;
+}
