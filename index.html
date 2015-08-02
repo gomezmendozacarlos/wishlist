@@ -1,25 +1,31 @@
 <!DOCTYPE html>
-<html ng-app="">
-	<head>
+<html>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
 		<title></title>
 		<script>
 		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-		</script>
+		</script>	<head>
+
 		<link rel="stylesheet" type="text/css" href="css/main.css">
-		<link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen and (max-width: 900px)">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
 		<script type="text/javascript" src="angular.min.js"></script>
+		<script type="text/javascript" src="angular-route.min.js"></script>
+
 		<script src="app.js"></script>
 	</head>
-	<body>
+	<body ng-app="wishlist">
+		
 		<header>
 			<h1>whislist</h1>
-		</header>
+			
+		</header> 
 		<div style="width: 90%">
 			<div class="left">
+				<a href="/#/newitem">
 				<div class="left btnNewItem">+</div>
 				<h2 class="left">new item</h2>
+				</a>
 			</div>
 			<div class="right" style="padding: 15px;">
 				<ul class="btns">
@@ -29,109 +35,13 @@
 					<li class="left btnsli btnsliLabel"><label>$sdgvd</label></li>
 				</ul>
 			</div>
-		</div>
-		
+		</div>		
 		<nav class="clear">
 			<ul class="btns">
-				<li class="left btnsli"><a href="#">My whislist items</a></li>
-				<li class="left btnsli"><a href="#">My bought items</a></li>
+				<li class="left btnsli"><a href="/#/wishlist">My whislist items</a></li>
+				<li class="left btnsli"><a href="/#/wishlist">My bought items</a></li>
 			</ul>
 		</nav>
-		<article>
-		<h2 class="clear">My wishlist items</h2>
-			<div class="left w50 itemBscContainer">
-				<span>Buscar : </span>
-				<input type="text">
-			</div>
-			<div class="left w50">
-				<ul class="btns">
-					<li class="left btnsLabel">Ordenar por: </li>
-					<li class="left btnsli"><a href="#">Creado</a></li>
-					<li class="left btnsli"><a href="#">Modificado</a></li>
-				</ul>
-			</div>
-			<section class="clear itemContainer">
-				<div class="left w50">
-					<div class="left itemImgContainer">
-						<img  src="http://a693.phobos.apple.com/us/r30/Purple/v4/c8/27/25/c8272541-648a-750b-7292-9fd82b6c3eb0/mzl.ugbojcbl.100x100-75.png">
-					</div>
-					<div class="left" >
-						<p>Nombre</p>
-						<p>Descripcion</p>
-						<p>Costo</p>
-						<p>Ultimavez modif</p>
-					</div>
-				</div>
-				<div class="left w50" style="text-align: center">
-					<ul class="btns">
-						<li class="itemImgContainer itemEditContainter">
-							<a href="">
-								<img <img src="http://img2.wikia.nocookie.net/__cb20110305212505/frontierville/images/9/9d/Carpenter_Pencil-icon.png" alt="editar" alt="">
-							</a>
-						</li>
-						<li class="itemImgContainer itemEditContainter">
-							<a href="">
-								<img src="http://edc.poolsupplyworld.com/wimages/highlights/highlights_thumbnail/symbol_dollar.jpg" alt="comprar" alt="">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</section>
-<section class="clear itemContainer">
-				<div class="left w50">
-					<div class="left itemImgContainer">
-						<img  src="http://a693.phobos.apple.com/us/r30/Purple/v4/c8/27/25/c8272541-648a-750b-7292-9fd82b6c3eb0/mzl.ugbojcbl.100x100-75.png">
-					</div>
-					<div class="left" >
-						<p>Nombre</p>
-						<p>Descripcion</p>
-						<p>Costo</p>
-						<p>Ultimavez modif</p>
-					</div>
-				</div>
-				<div class="left w50" style="text-align: center">
-					<ul class="btns">
-						<li class="itemImgContainer itemEditContainter">
-							<a href="">
-								<img <img src="http://img2.wikia.nocookie.net/__cb20110305212505/frontierville/images/9/9d/Carpenter_Pencil-icon.png" alt="editar" alt="">
-							</a>
-						</li>
-						<li class="itemImgContainer itemEditContainter">
-							<a href="">
-								<img src="http://edc.poolsupplyworld.com/wimages/highlights/highlights_thumbnail/symbol_dollar.jpg" alt="comprar" alt="">
-							</a>
-						</li>
-					</ul>
-				</div>
-			</section>			
-		</article>
-				
-		<article>
-			<div class="newItemContainer">
-			<h2 class="clear">New/Edit Items</h2>
-			<div class="w50  newItemImputContainer">
-				<span>Item : </span>
-				<input type="text">
-			</div>
-			<div class="w50 newItemImputContainer">
-				<span>Descricion : </span>
-				<input type="text">
-			</div>
-			<div class="w50 newItemImputContainer">
-				<span>Costo: </span>
-				<input type="text">
-			</div>
-			<div class="w50 newItemImputContainer">
-				<span>imagen : </span>
-				<input type="text">
-			</div>			
-			<div class="left w50">
-				<ul class="btns">
-					<li class="left btnsli"><a href="#">Cancelar</a></li>
-					<li class="left btnsli"><a href="#">Guardar</a></li>
-				</ul>
-			</div>
-			</div>			
-		</article>		
+		<ng-view></ng-view>			
 	</body>
 </html>

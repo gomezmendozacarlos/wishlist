@@ -1,5 +1,7 @@
-body {
+@media screen and (max-width: 900px) {
+	body {
 	background-color: red;
+	}
 }
 
 @media screen and (max-width: 500px) {
