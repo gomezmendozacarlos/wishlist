@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  ng-app="wishlist">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width">
 		<title></title>
@@ -14,7 +14,7 @@
 
 		<script src="app.js"></script>
 	</head>
-	<body ng-app="wishlist">
+	<body>
 		
 		<header>
 			<h1>whislist</h1>
@@ -38,8 +38,8 @@
 		</div>		
 		<nav class="clear">
 			<ul class="btns">
-				<li class="left btnsli"><a href="/#/wishlist">My whislist items</a></li>
-				<li class="left btnsli"><a href="/#/wishlist">My bought items</a></li>
+				<li class="left btnsli" ng-click="actualTab = 'wishlist'"><a href="/#/wishlist">My whislist items</a></li>
+				<li class="left btnsli" ng-click="actualTab = 'comprado'"><a href="/#/wishlist">My bought items</a></li>
 			</ul>
 		</nav>
 		<ng-view></ng-view>			

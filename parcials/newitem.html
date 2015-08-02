@@ -1,24 +1,24 @@
 
 
 		
-  <article>
+<article ng-controller="itemsController">
 			<div class="newItemContainer">
 			<h2 class="clear">New/Edit Items</h2>
 			<div class="w50  newItemImputContainer">
-				<span>Item : </span>
-				<input type="text">
+				<span>Item :</span>
+				<input type="text" ng-model="items[0].nombre">
 			</div>
 			<div class="w50 newItemImputContainer">
 				<span>Descricion : </span>
-				<input type="text">
+				<input type="text" ng-model="items[0].descripcion">
 			</div>
 			<div class="w50 newItemImputContainer">
 				<span>Costo: </span>
-				<input type="text">
+				<input type="text" ng-model="items[0].costo">
 			</div>
 			<div class="w50 newItemImputContainer">
 				<span>imagen : </span>
-				<input type="text">
+				<input type="text" ng-model="items[0].imagen">
 			</div>			
 			<div class="left w50">
 				<ul class="btns">
@@ -27,5 +27,5 @@
 				</ul>
 			</div>
 			</div>			
-		</article>
+</article>
 
