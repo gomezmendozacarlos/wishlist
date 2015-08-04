@@ -9,13 +9,14 @@
 		<ul class="btns">
 			<li class="left btnsLabel">Ordenar por: </li>
 			<li class="left btnsli" ng-click=" ordenarPor = '-creado'"><a>Creado</a></li>
-			<li class="left btnsli" ng-click=" ordenarPor = '-fechaMod'"><a>Modificado</a></li>
+			<li class="left btnsli" ng-click=" ordenarPor = '+fechaMod'"><a>Modificado</a></li>
 		</ul>
 	</div>
 	<section class="clear itemContainer" ng-show ="actualTab == item.status"  ng-repeat="item in items | filter: searchText | orderBy:ordenarPor">
 		<div class="left w50">
-			<div class="left itemImgContainer">
-				<img  ng-src="{{items[0].imagen}}">
+
+			<div class="left itemImgContainer" ng-click="viewImage(item.imagen)">				
+				<img  ng-src="{{item.imagen}}">
 			</div>
 			<div class="left">
 				<p>{{item.nombre}}</p>
@@ -24,14 +25,13 @@
 				<p>{{item.fechaMod | date:'yyyy-MM-dd h:mm a'}}</p>
 			</div>
 		</div>
-		<div class="left w50" class="itemIconsContainter">
+		<div class="left w50" class="itemIconsContainter" ng-hide ="actualTab === 'bought'">
+		
 			<ul class="btns">
-				<li class="itemImgContainer itemEditContainter">
-					<a href="/#/edititem">
-						<img <img src="http://www.clker.com/cliparts/P/3/n/5/9/E/pencil-th.png" alt="editar">
-					</a>
+				<li class="itemImgContainer itemEditContainter" ng-click="editItem(item)">
+						<img src="http://www.clker.com/cliparts/P/3/n/5/9/E/pencil-th.png" alt="editar">
 				</li>
-				<li class="itemImgContainer itemEditContainter" ng-click="item.status = 'comprado'">
+				<li class="itemImgContainer itemEditContainter" ng-click="item.status = 'bought'">
 					<a href="">
 						<img src="http://edc.poolsupplyworld.com/wimages/highlights/highlights_thumbnail/symbol_dollar.jpg" alt="comprar">
 					</a>

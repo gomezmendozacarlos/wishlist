@@ -3,6 +3,9 @@ img {
 	height: :auto;
 	margin: 0 0 10 px 0;
 }
+.imgView {
+	margin: 30px 30px !important;
+}
 
 input {
 	padding: 10px;
@@ -93,7 +96,8 @@ article {
 
 .itemImgContainer {
 	padding: 25px;
-	height: 100px;
+	width: 100px;
+	
 }
 
 .itemEditContainter {

@@ -1,4 +1,5 @@
-'use strict';
+"use strict"
+
 var wishlist = angular.module("wishlist", ['ngRoute']);
 
 wishlist.config(function($routeProvider) {
@@ -7,7 +8,7 @@ wishlist.config(function($routeProvider) {
             templateUrl: "parcials/newitem.html",
             controller: "itemsController"
         }).when("/edititem", {
-            templateUrl: "parcials/newitem.html",
+            templateUrl: "parcials/edititem.html",
             controller: "itemsController"
         }).when("/wishlist", {
             templateUrl: "parcials/tablist.html",
@@ -15,23 +16,33 @@ wishlist.config(function($routeProvider) {
         }).when("/boughtlist", {
             templateUrl: "parcials/tablist.html",
             controller: "itemsController"
-        })
+        }).when("/imageview", {
+            templateUrl: "parcials/imageview.html",
+            controller: "itemsController"
+        }).otherwise({
+            redirectTo: '/wishlist'
+        });
 });
 
-wishlist.controller('itemsController', ['$scope', '$rootScope', "Items",
-    function($scope, $rootScope, prod) {
-        $scope.ordenarPor = "-costo"
+wishlist.controller('itemsController', ['$scope', '$rootScope', "Items", "$routeParams", "$location",
+    function($scope, $rootScope, prod, $routeParams, $location) {
+        $scope.ordenarPor = "-costo";
         $scope.items = prod.list;
+
+        $rootScope.itemToEdit;
+        $rootScope.imageViewUrl;
         $rootScope.actualTab = "wishlist";
         $rootScope.gastoMax = 0;
+
 
         $scope.showItem = function(item) {
             if ($scope.actualTab === item) {
                 return true;
-            };
-        }
+            }
+        };
 
         $rootScope.addItem = function() {
+
             var name = document.getElementById("newItemName").value;
             var desc = document.getElementById("newItemDescripcion").value;
             var costo = document.getElementById("newItemCosto").value;
@@ -42,27 +53,71 @@ wishlist.controller('itemsController', ['$scope', '$rootScope', "Items",
                 descripcion: desc,
                 costo: costo,
                 //fechaMod: new Date(),
-                fechaMod: "2015-08-30T11:34:01.976Z",
-                imagen: "http://a693.phobos.apple.com/us/r30/Purple/v4/c8/27/25/c8272541-648a-750b-7292-9fd82b6c3eb0/mzl.ugbojcbl.100x100-75.png",
+                fechaMod: new Date(),
+                imagen: img,
                 status: "wishlist",
-                creado: "new Date()"
+                creado: new Date()
             });
-        }
+
+            document.location.href = ("/#/wishlist");
+        };
+
+        $scope.editItem = function(item) {
+            document.location.href = ("/#/edititem");
+            $rootScope.itemToEdit = item;
+            //alert("edit item");
+        };
+
+        $scope.saveEditItem = function() {
+
+            var item = $rootScope.itemToEdit;
+
+            var name = document.getElementById("editItemName").value;
+            var desc = document.getElementById("editItemDescripcion").value;
+            var costo = document.getElementById("editItemCosto").value;
+            var img = document.getElementById("editItemIMagen").value;
+
+            alert(item.creado);
+            alert(name);
+
+            prod.remove(item);
+
+            prod.add({
+                nombre: name,
+                descripcion: desc,
+                costo: costo,
+                fechaMod: new Date(),
+                imagen: img,
+                status: "wishlist",
+                creado: item.creado
+            });
 
 
+            // $rootScope.itemToEdit = item;
+            // document.location.href = ("/#/edititem");
+        };
+
+        $scope.viewImage = function(item) {
+            $rootScope.imageViewUrl = item;
+            document.location.href = ("/#/imageview");
+        };
+
+        $scope.puedoGastar = function() {
+
+        };
     }
 ]);
 
 wishlist.factory("Items", function() {
-    var Items = {}
+    var Items = {};
 
     Items.list = [{
         nombre: "Nombre del producto",
         descripcion: "Descripcion del producto",
         costo: 521,
         //fechaMod: new Date(),
-        fechaMod: "2015-08-30T11:34:01.976Z",
-        imagen: "http://a693.phobos.apple.com/us/r30/Purple/v4/c8/27/25/c8272541-648a-750b-7292-9fd82b6c3eb0/mzl.ugbojcbl.100x100-75.png",
+        fechaMod: "2015-08-04T11:34:01.976Z",
+        imagen: "http://xn--soar-con-e3a.com/wp-content/uploads/2015/05/So%C3%B1ar-con-Computadora.jpg",
         status: "wishlist",
         creado: "2015-08-30T11:34:01.976Z"
     }, {
@@ -85,15 +140,20 @@ wishlist.factory("Items", function() {
         nombre: "ventilador",
         descripcion: "maquina echa aigreee",
         costo: 355,
-        fechaMod: "2015-08-31T11:34:01.976Z",
+        fechaMod: "2015-08-05T11:34:01.976Z",
         imagen: "http://a693.phobos.apple.com/us/r30/Purple/v4/c8/27/25/c8272541-648a-750b-7292-9fd82b6c3eb0/mzl.ugbojcbl.100x100-75.png",
-        status: "bought",
-        creado: "2015-08-15T11:34:01.976Z"
+        status: "wishlist",
+        creado: "2015-08-03T11:34:01.976Z"
     }];
 
     Items.add = function(newItem) {
         Items.list.push(newItem);
     };
+
+    Items.remove = function(item) {
+        var index = Items.list.indexOf(item);
+        Items.list.splice(index, 1);
+    }
 
 
     return Items;

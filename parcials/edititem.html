@@ -1,28 +1,27 @@
 <article ng-controller="itemsController">
 	<!--<form ng-submit="addItem(newItem)">-->
-	<h2>New item</h2>
+	<h2>Edit item</h2>
 	<div class="newItemContainer">
-		<h2 class="clear">New/Edit Items</h2>
 		<div class="w50  newItemImputContainer">
 			<span>Item :</span>
-			<input type="text" id="newItemName">
+			<input type="text" id="editItemName" ng-model="itemToEdit.nombre">
 		</div>
 		<div class="w50 newItemImputContainer">
 			<span>Descricion : </span>
-			<input type="text" id="newItemDescripcion">
+			<input type="text" id="editItemDescripcion" ng-model="itemToEdit.descripcion">
 		</div>
 		<div class="w50 newItemImputContainer">
 			<span>Costo: </span>
-			<input type="text"id="newItemCosto">
+			<input type="text"id="editItemCosto" ng-model="itemToEdit.costo">
 		</div>
 		<div class="w50 newItemImputContainer">
 			<span >imagen : </span>
-			<input type="text" id="newItemIMagen">
+			<input type="text" id="editItemIMagen" ng-model="itemToEdit.imagen">
 		</div>
 		<div class="left w50">
 			<ul class="btns">
 				<li class="left btnsli"><a href="/#/wishlist">Cancelar</a></li>
-				<li class="left btnsli" ng-click="addItem()"><span>Guardar</span><!--<input type="submit" id="submit" value="Submit" />--></li>
+				<li class="left btnsli" ><span ng-click="saveEditItem(item)">Guardar</span><!--<input type="submit" id="submit" value="Submit" />--></li>
 			</ul>
 		</div>
 	</div>
