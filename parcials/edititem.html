@@ -1,5 +1,4 @@
-<article ng-controller="itemsController">
-	<!--<form ng-submit="addItem(newItem)">-->
+<article class="articleNewItem">
 	<h2>Edit item</h2>
 	<div class="newItemContainer">
 		<div class="w50  newItemImputContainer">
@@ -12,7 +11,7 @@
 		</div>
 		<div class="w50 newItemImputContainer">
 			<span>Costo: </span>
-			<input type="text"id="editItemCosto" ng-model="itemToEdit.costo">
+			<input type="number" id="editItemCosto" ng-model="itemToEdit.costo">
 		</div>
 		<div class="w50 newItemImputContainer">
 			<span >imagen : </span>

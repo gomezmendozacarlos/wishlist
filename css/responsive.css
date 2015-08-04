@@ -1,28 +1,100 @@
-@media screen and (max-width : 1000px) {
+@media screen and (max-width:1000px) {
 	body {
-	
 	}
 }
-
-@media screen and (max-width : 768px) {
+@media screen and (max-width:480px) {
 	body {
-	
-
-	.left{
-		margin:10px 0;
+		font-size: 12px;
 	}
-
+	input {
+		padding: 5px;
+		border: 2px solid gray;
+		font-size: 12px;
+	}
+	.btnNewItem {
+		border-radius: 50%;
+		border: 2px solid gray;
+		color: gray;
+		width: 30px;
+		height: 30px;
+		font-size: 25px;
+		text-align: center
+	}
+	.btnNewLabel {
+		margin: 7px 0 0 5px;
+	}
+	.itemBscContainer {
+		float: none;
+	}
+	.itemImgContainer {
+		width: 50px;
+		float: none;
+		margin: auto auto;
+	}
 	.w50 {
 		width: 100%;
-	} 
-
-	article{
+	}
+	article {
 		min-height: 580px;
 	}
-}
-
-@media screen and (max-width : 480px) {
-	body {
-	
+	.btns {
+		list-style: none;
+		margin: 0 10px 0 10px;
+		padding: 0;
 	}
+	
+}
+.btnsli {
+	border-radius: 5px;
+	font-weight: bold;
+	margin-right: 10px;
+	margin-top: 5px;
+	text-align: center;
+	border: 2px solid gray;
+	float: left;
+	font-size: 12px;
+}
+.btnsli:hover {
+	border: 2px solid gray;
+}
+.btnsli a, .btnsli span {
+	color: black;
+	display: block;
+	padding: 5px;
+	text-decoration: none;
+}
+.btnsli a:hover, .btnsli span:hover {
+	color: #fff;
+	background-color: gray;
+}
+.btnsliLabel {
+	color: black;
+	display: block;
+	padding: 5px;
+	text-decoration: none;
+}
+.btnsLabel {
+	border-top: 2px solid white;
+	padding-top: 5px;
+	float: left;
+}
+.articleNewItem {
+	min-height: 280px;
+}
+.newItemContainer {
+	height: 270px;
+}
+.itemDataContainer {
+	text-align: center;
+}
+.itemBtnsContainer {
+	text-align: center;
+}
+.itemContainer {
+	height: 320px;
+}
+}
+@media screen and (max-width:480px) {
+body {
+}
 }

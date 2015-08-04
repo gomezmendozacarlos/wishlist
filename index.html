@@ -8,9 +8,6 @@
 	</script>	<head>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
 		<link rel="stylesheet" type="text/css" href="css/responsive.css">
-		<script type="text/javascript" src="angular.min.js"></script>
-		<script type="text/javascript" src="angular-route.min.js"></script>
-		<script src="app.js"></script>
 	</head>
 	<body>
 		<header>
@@ -20,15 +17,17 @@
 			<div class="left">
 				<a href="/#/newitem">
 					<div class="left btnNewItem">+</div>
-					<h2 class="left">new item</h2>
+					<h2 class="left btnNewLabel">new item</h2>
 				</a>
 			</div>
 			<div class="left" style="padding: 15px;">
 				<ul class="btns">
 					<li class="left btnsLabel">Maximo permitido: $</li>
-					<li class="left"><input style="width:50px;" type="text" ng-model="gastoMaxdfg"></li>
+					<li class="left"><input style="width:50px;" type="text" ng-model="gastoMax"></li>
+					</ul>
+					<ul class="btns">
 					<li class="left btnsLabel">Dinero Gastado: </li>
-					<li class="left btnsli btnsliLabel"><label>$sdgvd</label></li>
+					<li class="left btnsli btnsliLabel"><label>{{totalGastado}}</label></li>
 				</ul>
 			</div>
 		</div>
@@ -40,4 +39,7 @@
 		</nav>
 		<ng-view></ng-view>
 	</body>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="angular-route.min.js"></script>
+	<script src="app.js"></script>
 </html>

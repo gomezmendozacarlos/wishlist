@@ -33,6 +33,7 @@ wishlist.controller('itemsController', ['$scope', '$rootScope', "Items", "$route
         $rootScope.imageViewUrl;
         $rootScope.actualTab = "wishlist";
         $rootScope.gastoMax = 15000;
+        $rootScope.totalGastado = 0;
 
 
         $scope.showItem = function(item) {
@@ -92,6 +93,8 @@ wishlist.controller('itemsController', ['$scope', '$rootScope', "Items", "$route
                 creado: item.creado
             });
 
+            document.location.href = ("/#/wishlist");
+
         };
 
         $scope.viewImage = function(item) {
@@ -117,9 +120,17 @@ wishlist.controller('itemsController', ['$scope', '$rootScope', "Items", "$route
 
             if (suma <= $rootScope.gastoMax) {
                 item.status = "bought";
+
+                 
+
             } else {
-                alert("No puede comprar este articulo");
+                alert("con esta compra excede el limite fijado. No puede comprar este articulo");
             };
+
+            for (var i = 0; i <= prod.list.length - 1; i++) {              
+
+                    $rootScope.totalGastado += prod.list[i].costo;            
+            }
 
         };
     }

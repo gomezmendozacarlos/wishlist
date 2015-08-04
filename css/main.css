@@ -1,7 +1,7 @@
 img {
 	max-width: 100%;
-	height: :auto;
-	margin: 0 0 10 px 0;
+	height: auto;
+	margin: 0 0 10px 0;
 }
 .imgView {
 	margin: 30px 30px !important;
@@ -21,6 +21,10 @@ body {
 	color: black;
 }
 
+.btnNewLabel {
+	margin-left: 10px;
+}
+
 .btnNewItem {
 	border-radius: 50%;
 	border: 5px solid gray;
@@ -38,10 +42,11 @@ nav {
 	width: 90%;
 }
 
-.btns {
+.btns, .btnsEdit {
 	list-style: none;
-	margin: 0 10px 0 10px;
+	margin: 10px 10px 0 10px;
 	padding: 0;
+	float: left;
 }
 
 .btnsli {
@@ -51,6 +56,7 @@ nav {
 	margin-right: 10px;
 	text-align: center;
 	border: 3px solid gray;
+	float:left;
 }
 
 .btnsli:hover {
@@ -79,15 +85,29 @@ nav {
 .btnsLabel {
 	border: 3px solid white;
 	padding: 10px;
+	float:left;
 }
 
 article {
 	width: 90%;
-	min-height: 300px;
+	
 	border: 3px solid gray;
 	border-radius: 5px;
 	padding: 10px;
 }
+
+.articleTab{
+	min-height: 300px;
+}
+
+.articleNewItem{
+	min-height: 450px;
+}
+
+.itemBscContainer {
+	float:left;
+}
+
 
 .itemContainer {
 	height: 150px;
@@ -97,7 +117,7 @@ article {
 .itemImgContainer {
 	padding: 25px;
 	width: 100px;
-	
+	float:left;
 }
 
 .itemEditContainter {
@@ -118,7 +138,7 @@ article {
 }
 
 .newItemImputContainer span {
-	disply: block;
+	display: block;
 	width: 100px;
 }
 
