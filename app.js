@@ -32,7 +32,7 @@ wishlist.controller('itemsController', ['$scope', '$rootScope', "Items", "$route
         $rootScope.itemToEdit;
         $rootScope.imageViewUrl;
         $rootScope.actualTab = "wishlist";
-        $rootScope.gastoMax = 0;
+        $rootScope.gastoMax = 15000;
 
 
         $scope.showItem = function(item) {
@@ -48,11 +48,12 @@ wishlist.controller('itemsController', ['$scope', '$rootScope', "Items", "$route
             var costo = document.getElementById("newItemCosto").value;
             var img = document.getElementById("newItemIMagen").value;
 
+
+
             prod.add({
                 nombre: name,
                 descripcion: desc,
-                costo: costo,
-                //fechaMod: new Date(),
+                costo: Number(costo),
                 fechaMod: new Date(),
                 imagen: img,
                 status: "wishlist",
@@ -60,12 +61,14 @@ wishlist.controller('itemsController', ['$scope', '$rootScope', "Items", "$route
             });
 
             document.location.href = ("/#/wishlist");
+
         };
 
         $scope.editItem = function(item) {
+
             document.location.href = ("/#/edititem");
             $rootScope.itemToEdit = item;
-            //alert("edit item");
+
         };
 
         $scope.saveEditItem = function() {
@@ -77,38 +80,53 @@ wishlist.controller('itemsController', ['$scope', '$rootScope', "Items", "$route
             var costo = document.getElementById("editItemCosto").value;
             var img = document.getElementById("editItemIMagen").value;
 
-            alert(item.creado);
-            alert(name);
-
             prod.remove(item);
 
             prod.add({
                 nombre: name,
                 descripcion: desc,
-                costo: costo,
+                costo: Number(costo),
                 fechaMod: new Date(),
                 imagen: img,
                 status: "wishlist",
                 creado: item.creado
             });
 
-
-            // $rootScope.itemToEdit = item;
-            // document.location.href = ("/#/edititem");
         };
 
         $scope.viewImage = function(item) {
+
             $rootScope.imageViewUrl = item;
             document.location.href = ("/#/imageview");
+
         };
 
-        $scope.puedoGastar = function() {
+        $scope.puedoGastar = function(item) {
+
+            var total = 0,
+                costo = item.costo,
+                suma = 0;
+
+            for (var i = 0; i <= prod.list.length - 1; i++) {
+                if (prod.list[i].status === "bought") {
+                    total += prod.list[i].costo;
+                };
+            }
+
+            var suma = Number(total) + Number(costo);
+
+            if (suma <= $rootScope.gastoMax) {
+                item.status = "bought";
+            } else {
+                alert("No puede comprar este articulo");
+            };
 
         };
     }
 ]);
 
 wishlist.factory("Items", function() {
+
     var Items = {};
 
     Items.list = [{
@@ -154,7 +172,6 @@ wishlist.factory("Items", function() {
         var index = Items.list.indexOf(item);
         Items.list.splice(index, 1);
     }
-
 
     return Items;
 });
